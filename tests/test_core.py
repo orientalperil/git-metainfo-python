@@ -43,8 +43,16 @@ def test_detached_head():
     responses = [
         b"HEAD",
         b"abc123",
-        b"test commit",
+        b"abc123",
+        b"John",
+        b"john@john.com",
         b"2026-01-01 00:00:00 +0000",
+        b"2026-01-01T00:00:00Z",
+        b"John",
+        b"john@john.com",
+        b"2026-01-01 00:00:00 +0000",
+        b"2026-01-01T00:00:00Z",
+        b"test commit",
     ]
 
     with patch(
@@ -66,8 +74,16 @@ def test_normal_branch():
     responses = [
         b"master",
         b"abc123",
-        b"test commit",
+        b"abc123",
+        b"John",
+        b"john@john.com",
         b"2026-01-01 00:00:00 +0000",
+        b"2026-01-01T00:00:00Z",
+        b"John",
+        b"john@john.com",
+        b"2026-01-01 00:00:00 +0000",
+        b"2026-01-01T00:00:00Z",
+        b"test commit",
     ]
 
     with patch(
