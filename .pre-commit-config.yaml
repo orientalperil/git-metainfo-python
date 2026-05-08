@@ -1,0 +1,13 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff check
+        language: system
+        entry: bash -c 'poetry run ruff check'
+        pass_filenames: false
+      - id: ruff-format-isort
+        name: ruff format and isort
+        language: system
+        entry: bash -c 'poetry run ruff format && poetry run isort .'
+        pass_filenames: false

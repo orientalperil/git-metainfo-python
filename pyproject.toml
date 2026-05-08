@@ -3,7 +3,7 @@ name = "git-metainfo"
 version = "0.1.0"
 description = "Generate git metadata JSON files"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 license = { text = "MIT" }
 authors = [
     { name = "Kevin Tran" }
@@ -17,6 +17,9 @@ git-metainfo = "git_metainfo.cli:main"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"
+pre-commit = "^3.7.0"
+ruff = "^0.11.0"
+isort = "^5.13.0"
 
 [build-system]
 requires = ["poetry-core>=2.0.0"]

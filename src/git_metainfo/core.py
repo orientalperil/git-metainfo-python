@@ -18,9 +18,7 @@ class NotGitRepositoryError(GitMetaInfoError):
 
 def _run_git_command(args):
     if shutil.which("git") is None:
-        raise GitNotInstalledError(
-            "git executable was not found in PATH"
-        )
+        raise GitNotInstalledError("git executable was not found in PATH")
 
     try:
         return (
@@ -44,53 +42,30 @@ def _run_git_command(args):
 
 
 def get_git_data():
-    branch = _run_git_command(
-        ["rev-parse", "--abbrev-ref", "HEAD"]
-    )
+    branch = _run_git_command(["rev-parse", "--abbrev-ref", "HEAD"])
 
     detached = branch == "HEAD"
 
     return {
-        "hash": _run_git_command(
-            ["rev-parse", "HEAD"]
-        ),
-        "short_hash": _run_git_command(
-            ["rev-parse", "--short", "HEAD"]
-        ),
-        "author_name": _run_git_command(
-            ["log", "-1", "--pretty=%an"]
-        ),
-        "author_email": _run_git_command(
-            ["log", "-1", "--pretty=%ae"]
-        ),
-        "author_date": _run_git_command(
-            ["log", "-1", "--pretty=%ai"]
-        ),
-        "author_date_iso": _run_git_command(
-            ["log", "-1", "--pretty=%aI"]
-        ),
-        "committer_name": _run_git_command(
-            ["log", "-1", "--pretty=%cn"]
-        ),
-        "committer_email": _run_git_command(
-            ["log", "-1", "--pretty=%ce"]
-        ),
-        "committer_date": _run_git_command(
-            ["log", "-1", "--pretty=%ci"]
-        ),
-        "committer_date_iso": _run_git_command(
-            ["log", "-1", "--pretty=%cI"]
-        ),
-        "message": _run_git_command(
-            ["log", "-1", "--pretty=%B"]
-        ),
+        "hash": _run_git_command(["rev-parse", "HEAD"]),
+        "short_hash": _run_git_command(["rev-parse", "--short", "HEAD"]),
+        "author_name": _run_git_command(["log", "-1", "--pretty=%an"]),
+        "author_email": _run_git_command(["log", "-1", "--pretty=%ae"]),
+        "author_date": _run_git_command(["log", "-1", "--pretty=%ai"]),
+        "author_date_iso": _run_git_command(["log", "-1", "--pretty=%aI"]),
+        "committer_name": _run_git_command(["log", "-1", "--pretty=%cn"]),
+        "committer_email": _run_git_command(["log", "-1", "--pretty=%ce"]),
+        "committer_date": _run_git_command(["log", "-1", "--pretty=%ci"]),
+        "committer_date_iso": _run_git_command(["log", "-1", "--pretty=%cI"]),
+        "message": _run_git_command(["log", "-1", "--pretty=%B"]),
         "branch": None if detached else branch,
         "detached_head": detached,
     }
 
 
-def write_git_metainfo(output="git-metainfo.json"):
-    data = get_git_data()
+def write_git_metainfo(output="git-metainfo.json", data=None):
+    if data is None:
+        data = get_git_data()
 
     output_path = Path(output)
 

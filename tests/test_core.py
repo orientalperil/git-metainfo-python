@@ -2,9 +2,8 @@ import subprocess
 from unittest.mock import patch
 
 import pytest
-
-from git_metainfo.core import GitNotInstalledError
 from git_metainfo.core import GitMetaInfoError
+from git_metainfo.core import GitNotInstalledError
 from git_metainfo.core import NotGitRepositoryError
 from git_metainfo.core import get_git_data
 
@@ -33,9 +32,7 @@ def test_not_git_repository():
             "git_metainfo.core.subprocess.check_output",
             side_effect=error,
         ):
-            with pytest.raises(
-                NotGitRepositoryError
-            ):
+            with pytest.raises(NotGitRepositoryError):
                 get_git_data()
 
 
