@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "git-metainfo"
+version = "0.1.0"
+description = "Generate git metadata JSON files"
+readme = "README.md"
+authors = ["Kevin Tran"]
+homepage = "https://github.com/orientalperil/git-metainfo-python"
+license = "mit"
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+
+[tool.poetry.scripts]
+git-metainfo = "git_metainfo.cli:main"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
