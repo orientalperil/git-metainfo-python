@@ -13,11 +13,11 @@ def main():
 
     data = get_git_data()
 
-    json.dump(data, sys.stdout, indent=2)
-    sys.stdout.write("\n")
-
     if args.output:
         write_git_metainfo(args.output, data)
+    else:
+        json.dump(data, sys.stdout, indent=2)
+        sys.stdout.write("\n")
 
 
 if __name__ == "__main__":

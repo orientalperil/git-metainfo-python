@@ -2,6 +2,7 @@ import subprocess
 from unittest.mock import patch
 
 import pytest
+
 from git_metainfo.core import GitMetaInfoError
 from git_metainfo.core import GitNotInstalledError
 from git_metainfo.core import NotGitRepositoryError
