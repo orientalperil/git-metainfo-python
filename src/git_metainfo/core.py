@@ -65,10 +65,7 @@ def get_git_data():
     }
 
 
-def write_git_metainfo(output="git-metainfo.json", data=None):
-    if data is None:
-        data = get_git_data()
-
+def write_git_metainfo(output, data):
     output_path = Path(output)
 
     output_path.parent.mkdir(
@@ -78,5 +75,3 @@ def write_git_metainfo(output="git-metainfo.json", data=None):
 
     with open(output_path, "w") as f:
         json.dump(data, f, indent=2)
-
-    return output_path
