@@ -45,7 +45,7 @@ data = get_git_data()
 
 `pre-commit install`
 
-### Lint and format
+### Format
 
 `ruff format && isort .`
 
