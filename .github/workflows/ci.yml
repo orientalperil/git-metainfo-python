@@ -16,5 +16,6 @@ jobs:
       - uses: abatilo/actions-poetry@v4
       - run: poetry install
       - run: poetry run pytest
-      - run: poetry run ruff check .
+      - run: poetry run ruff check
+      - run: poetry run ruff format --check
       - run: poetry run isort . --check-only
