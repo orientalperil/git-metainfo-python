@@ -46,10 +46,12 @@ def test_detached_head():
         b"john@john.com",
         b"2026-01-01 00:00:00 +0000",
         b"2026-01-01T00:00:00Z",
+        b"1735689600",
         b"John",
         b"john@john.com",
         b"2026-01-01 00:00:00 +0000",
         b"2026-01-01T00:00:00Z",
+        b"1735689600",
         b"test commit",
     ]
 
@@ -77,10 +79,12 @@ def test_normal_branch():
         b"john@john.com",
         b"2026-01-01 00:00:00 +0000",
         b"2026-01-01T00:00:00Z",
+        b"1735689600",
         b"John",
         b"john@john.com",
         b"2026-01-01 00:00:00 +0000",
         b"2026-01-01T00:00:00Z",
+        b"1735689600",
         b"test commit",
     ]
 
