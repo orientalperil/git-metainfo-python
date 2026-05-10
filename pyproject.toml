@@ -8,9 +8,13 @@ license = { text = "MIT" }
 authors = [
     { name = "Kevin Tran" }
 ]
-urls = { Homepage = "https://github.com/orientalperil/git-metainfo-python" }
-
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/orientalperil/git-metainfo-python"
+
+[tool.poetry]
+packages = [{ include = "git_metainfo", from = "src" }]
 
 [project.scripts]
 git-metainfo = "git_metainfo.cli:main"
